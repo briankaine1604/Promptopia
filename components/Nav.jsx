@@ -70,8 +70,32 @@ const Nav = () => {
                 height={37}
                 className='rounded-full'
                 alt='profile'
-                onClick={settoggleDropdown=((prev)=>!prev)}
+                onClick={()=>settoggleDropdown ((prev)=>!prev)}
                 />
+                {toggleDropdown &&(
+                <div className='dropdown'>
+                    <Link href='/profile' 
+                    className='dropdown_link'
+                    onClick={()=>settoggleDropdown(false)} >
+                        My Profile
+                    </Link>
+                    <Link href='/Promptcard' 
+                    className='dropdown_link'
+                    onClick={()=>settoggleDropdown(false)} >
+                        Create Prompt
+                    </Link>
+                    <button
+                    type='button'
+                    className='w-full mt-5 black_btn'
+                    onClick={()=>{settoggleDropdown(false)
+                        signOut();
+                    }}
+                    >
+                        Sign Out
+                    </button>
+                </div>
+                
+                )}
             </div>
         ):(<>
             {providers && Object.values(providers).map((provider)=>{

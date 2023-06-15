@@ -1,5 +1,6 @@
 import Nav from '@components/Nav';
 import '@styles/globals.css'
+import Provider from '@components/Provider';
 
 export  const metadata = {
     title: 'prompt engine',
@@ -8,8 +9,9 @@ export  const metadata = {
 
 const RootLayout = ({children}) => {
   return (
-    <html>
+    <html lang='en'>
         <body>
+          <Provider>
             <div className='main'>
                 <div className='gradient'></div>
             </div>
@@ -17,6 +19,7 @@ const RootLayout = ({children}) => {
             <main className='app'>
             <Nav/>
                 {children}</main>
+                </Provider>
         </body>
     </html>
   )
